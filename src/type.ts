@@ -13,6 +13,8 @@ import {
   DeepPartial,
   ArrayPath,
   UseFormStateReturn,
+  SubmitHandler,
+  SubmitErrorHandler,
 } from 'react-hook-form';
 
 export type RHFormRef<TFieldValues extends FieldValues = FieldValues> = Pick<
@@ -27,9 +29,10 @@ export type RHFormRef<TFieldValues extends FieldValues = FieldValues> = Pick<
   | 'trigger'
   | 'unregister'
   | 'watch'
-  | 'handleSubmit'
   | 'formState'
->;
+> & {
+  submit: ReturnType<UseFormReturn<TFieldValues>['handleSubmit']>;
+};
 
 export type FormControlArrayRef<
   TFieldValues extends FieldValues = FieldValues,
@@ -63,6 +66,8 @@ export interface RHFormProps<TFieldValues extends FieldValues = FieldValues> {
   showAsterisk?: boolean;
   ref?: React.Ref<RHFormRef<TFieldValues>>;
   onChange?: (values: DeepPartial<TFieldValues>) => void;
+  onSubmit?: SubmitHandler<TFieldValues>;
+  onError?: SubmitErrorHandler<TFieldValues>;
 }
 
 export interface FormControlProps<

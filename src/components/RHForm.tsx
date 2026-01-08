@@ -13,6 +13,8 @@ const RHForm: RHFormComponent = <TFieldValues extends FieldValues = FieldValues>
   showAsterisk,
   ref,
   onChange,
+  onSubmit = () => {},
+  onError = () => {},
 }: RHFormProps<TFieldValues>) => {
   const methods = useForm<TFieldValues>({
     mode: 'onSubmit',
@@ -35,11 +37,11 @@ const RHForm: RHFormComponent = <TFieldValues extends FieldValues = FieldValues>
         trigger: methods.trigger,
         unregister: methods.unregister,
         watch: methods.watch,
-        handleSubmit: methods.handleSubmit,
         formState: methods.formState,
+        submit: methods.handleSubmit(onSubmit, onError),
       };
     },
-    [JSON.stringify(methods)]
+    [methods]
   );
 
   useEffect(() => {

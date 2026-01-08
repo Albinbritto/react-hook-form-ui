@@ -1,0 +1,78 @@
+{
+  "name": "react-hook-form-component",
+  "version": "0.1.0",
+  "description": "A headless React form library for managing complex state, validation, and error handling",
+  "type": "module",
+  "main": "./dist/react-hook-form-component.cjs.js",
+  "module": "./dist/react-hook-form-component.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/react-hook-form-component.es.js",
+      "require": "./dist/react-hook-form-component.cjs.js"
+    }
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Albinbritto/react-hook-form-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Albinbritto/react-hook-form-ui/issues"
+  },
+  "homepage": "https://github.com/Albinbritto/react-hook-form-ui#readme",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "forms",
+    "react-hook-form",
+    "rhf",
+    "form builder",
+    "form validation",
+    "react forms",
+    "hook form",
+    "controlled inputs"
+  ],
+  "author": "Albin Britto",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "jsdom": "^27.3.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.0.15"
+  },
+  "peerDependencies": {
+    "react": ">=18 <20",
+    "react-dom": ">=18 <20"
+  },
+  "dependencies": {
+    "react-hook-form": "^7.68.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

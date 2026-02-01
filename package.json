@@ -1,6 +1,6 @@
 {
   "name": "react-hook-form-component",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A headless React form library for managing complex state, validation, and error handling",
   "type": "module",
   "main": "./dist/react-hook-form-component.cjs.js",

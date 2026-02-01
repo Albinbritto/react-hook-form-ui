@@ -23,26 +23,22 @@ const RHForm: RHFormComponent = <TFieldValues extends FieldValues = FieldValues>
     ...formOptions,
   });
 
-  useImperativeHandle(
-    ref,
-    () => {
-      return {
-        setValue: methods.setValue,
-        setError: methods.setError,
-        clearErrors: methods.clearErrors,
-        getValues: methods.getValues,
-        reset: methods.reset,
-        setFocus: methods.setFocus,
-        resetField: methods.resetField,
-        trigger: methods.trigger,
-        unregister: methods.unregister,
-        watch: methods.watch,
-        formState: methods.formState,
-        submit: methods.handleSubmit(onSubmit, onError),
-      };
-    },
-    [methods]
-  );
+  useImperativeHandle(ref, () => {
+    return {
+      setValue: methods.setValue,
+      setError: methods.setError,
+      clearErrors: methods.clearErrors,
+      getValues: methods.getValues,
+      reset: methods.reset,
+      setFocus: methods.setFocus,
+      resetField: methods.resetField,
+      trigger: methods.trigger,
+      unregister: methods.unregister,
+      watch: methods.watch,
+      formState: methods.formState,
+      submit: methods.handleSubmit(onSubmit, onError),
+    };
+  }, [methods]);
 
   useEffect(() => {
     const subscription = methods.watch((value) => {

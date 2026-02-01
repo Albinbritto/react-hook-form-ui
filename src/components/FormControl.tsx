@@ -7,7 +7,7 @@ import { DisabilityChecker } from './DisabilityChecker';
 
 export const FormControl = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
   children,
   name,
@@ -23,7 +23,7 @@ export const FormControl = <
 }: FormControlProps<TFieldValues, TName>) => {
   const { control } = useFormContext<TFieldValues>();
   const isRenderFunction = typeof children === 'function';
-  const controlledValue = isRenderFunction ? externalValue ?? '' : children.props.value ?? '';
+  const controlledValue = isRenderFunction ? (externalValue ?? '') : (children.props.value ?? '');
   const { showAsterisk } = useRHFormContext();
 
   const fieldId = useMemo(() => id || crypto.randomUUID(), []);
@@ -58,12 +58,10 @@ export const FormControl = <
                 style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}
               >
                 <div
-                  className='controlled-field-description'
                   style={{
                     display: 'inline-flex',
                     ...(fieldDescription && {
                       gap: '2px',
-                      alignItems: 'center',
                       flexDirection: fieldDescription.position === 'LABEL_RIGHT' ? 'row' : 'column',
                     }),
                   }}

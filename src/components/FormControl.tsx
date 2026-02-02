@@ -1,5 +1,6 @@
 import { useMemo, cloneElement } from 'react';
 import { FieldValues, FieldPath, useFormContext, Controller } from 'react-hook-form';
+import { mergeRefs } from 'react-merge-refs';
 import { useRHFormContext } from '../context/RHFormContext';
 import { FormControlProps } from '../type';
 import { ConditionChecker } from './ConditionChecker';
@@ -93,7 +94,7 @@ export const FormControl = <
                         onBlur();
                         children.props.onBlur?.(...args);
                       },
-                      ref,
+                      ref: mergeRefs([ref, (children as any).ref ?? children.props.ref]),
                     })}
                 {error && (
                   <div style={{ color: 'red', fontSize: 13 }} className='controlled-field-error'>

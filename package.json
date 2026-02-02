@@ -1,6 +1,6 @@
 {
   "name": "react-hook-form-component",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "A headless React form library for managing complex state, validation, and error handling",
   "type": "module",
   "main": "./dist/react-hook-form-component.cjs.js",
@@ -70,7 +70,8 @@
     "react-dom": ">=18 <20"
   },
   "dependencies": {
-    "react-hook-form": "^7.68.0"
+    "react-hook-form": "^7.68.0",
+    "react-merge-refs": "^3.0.2"
   },
   "publishConfig": {
     "access": "public"

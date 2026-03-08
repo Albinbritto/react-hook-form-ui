@@ -53,6 +53,7 @@ export const FormControl = <
               field: { name, onBlur, value, onChange, ref, disabled: fieldDisabled },
               fieldState: { error },
             } = fieldState;
+            const hasRules = rules && Object.keys(rules).length > 0;
             return (
               <div
                 className={`controlled-field ${className}`}
@@ -70,7 +71,7 @@ export const FormControl = <
                   {label && (
                     <label htmlFor={fieldId} className='controlled-field-label'>
                       {label}
-                      {showAsterisk && !!rules && <span style={{ color: 'red' }}> *</span>}
+                      {showAsterisk && hasRules && <span style={{ color: 'red' }}> *</span>}
                     </label>
                   )}
                   {fieldDescription && fieldDescription.position !== 'CONTROL_BOTTOM' && (
